@@ -3,7 +3,10 @@ import styled from "@emotion/styled";
 export const ItemContact = styled.li`
   display: flex;
   justify-content: space-between;
-  margin-top: 8px;
+  // margin-top: 8px;
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
 `;
 
 export const BtnDelete = styled.button`
