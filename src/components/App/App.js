@@ -47,11 +47,8 @@ class App extends Component {
       number,
     };
 
-    const newElement = [];
-    newElement.push(newContact);
-
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, ...newElement],
+      contacts: [...prevState.contacts, newContact],
     }));
   };
 
@@ -63,20 +60,18 @@ class App extends Component {
 
   FilterContacts = () => {
     const { contacts, filter } = this.state;
+    const filterLowerCase = filter.toLowerCase();
+
     const contactsFilter = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase()),
+      contact.name.toLowerCase().includes(filterLowerCase),
     );
 
     return contactsFilter;
   };
 
-  onDeleteContact = evt => {
-    // console.log("Id", evt.target.name);
-
+  onDeleteContact = id => {
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter(
-        contact => contact.id !== evt.target.name,
-      ),
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
 

@@ -12,7 +12,7 @@ const ContactsList = ({ contactList, onDelete }) => {
             <RiUser3Line size={14} style={{ marginRight: 10 }} />
             {contact.name}: {contact.number}
           </div>
-          <BtnDelete type="button" name={contact.id} onClick={onDelete}>
+          <BtnDelete type="submit" onClick={() => onDelete(contact.id)}>
             delete
             <MdDelete size={16} color="#8919FA" style={{ marginLeft: 10 }} />
           </BtnDelete>
