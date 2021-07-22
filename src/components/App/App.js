@@ -5,6 +5,7 @@ import SectionTitle from "../SectionTitle";
 import ContactsList from "../Contacts";
 import Filter from "../Filter";
 import { v4 as uuidv4 } from "uuid";
+import { writeData, readData } from "../utils/localStorage-helper";
 
 import testDataContacts from "../data/data.json";
 
@@ -15,16 +16,14 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const datalocalStorage = localStorage.getItem("contacts");
-    if (datalocalStorage) {
-      const savedData = JSON.parse(datalocalStorage);
-      this.setState({ contacts: savedData });
+    if (readData("contacts")) {
+      this.setState({ contacts: readData("contacts") });
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
+      writeData("contacts", this.state.contacts);
     }
   }
 
