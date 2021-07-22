@@ -7,14 +7,18 @@ export const ItemContact = styled.li`
 `;
 
 export const BtnDelete = styled.button`
-  min-width: 70px;
-  border-color: #ba8ae9;
+  display: flex;
+  align-items: center;
+  min-width: 80px;
+  padding: 3px 18px;
+
+  border-color: var(--second-color);
   border-radius: 6px;
 
   &:hover,
   &:focus {
-    background-color: #ba8ae9;
-    color: #ffffff;
+    background-color: var(--second-color);
+    color: var(--invers-color);
     cursor: pointer;
   }
 `;
